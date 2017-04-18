@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<section class="main">
+			<ul class="imgs">
+				<li class="aaa"><a href="javascript:void(0)"><img src="img/img1.jpg" alt="##"><span>习近平会见圣多美和普林西比总理特罗瓦达</span></a></li>
+				<li><a href="javascript:void(0)"><img src="img/img2.jpg" alt="##"><span>扒一扒收购AC米兰的李勇鸿和幕后大Boss</span></a></li>
+				<li><a href="javascript:void(0)"><img src="img/img3.jpg" alt="##"><span>21岁男孩吞烟吐雾 成为难以置信的烟雾之神</span></a></li>
+				<li><a href="javascript:void(0)"><img src="img/img4.jpg" alt="##"><span>3000人吃自助“大锅饭” 感受部落生活</span></a></li>
+				<li><a href="javascript:void(0)"><img src="img/img5.jpg" alt="##"><span>纽约的报刊亭文化：物品摆放充满艺术性</span></a></li>
+				<li><a href="javascript:void(0)"><img src="img/img6.jpg" alt="##"><span>男神女神？他们都是改变世界的大人物</span></a></li>
+				<li><a href="javascript:void(0)"><img src="img/img7.jpg" alt="##"><span>奇境“颠倒屋”</span></a></li>
+				<li><a href="javascript:void(0)"><img src="img/img8.jpg" alt="##"><span>西双版纳上演万人泼水狂欢</span></a></li>
+			</ul>
+			
+			<div class="dots">
+				<span class="now"><i></i></span>
+				<span><i></i></span>
+				<span><i></i></span>
+				<span><i></i></span>
+				<span><i></i></span>
+				<span><i></i></span>
+				<span><i></i></span>
+				<span><i></i></span>
+			</div>
+			
+			<a class="btnLeft" href="javascript:void(0)"></a>
+			<a class="btnRight" href="javascript:void(0)"></a>
+		</section>
+		
+		
+		
+		<script type="text/javascript">
+			var imgNodes=document.querySelectorAll(".imgs img");
+			var liNodes=document.querySelectorAll(".imgs li");
+			var dotNode=document.querySelectorAll(".dots span");
+			var	leftNode=document.querySelector(".btnLeft");
+			var	rightNode=document.querySelector(".btnRight");	
+			
+			
+			
+																										
+			//点击白点切换图片
+			for(var	i=0;i<dotNode.length;i++){
+				dotNode[i].wwww=i;	
+				
+				//右边点击图片滚动
+				rightNode.onclick=function(){
+				var nowLi=document.querySelector(".aaa");
+				var lastli;
+				for (var n=0;n<liNodes.length;n++) {	
+					liNodes[n].zzz=n;
+				}		
+				
+				
+				var xx=nowLi.zzz+1;
+				var yy=nowLi.zzz;
+				if (xx===8) {
+					xx=0;
+					
+				} else{
+				}
+				dotNode[xx].className="now";
+				dotNode[yy].className="";
+				liNodes[xx].style.display="block";
+				liNodes[yy].style.display="none";
+				liNodes[xx].className="aaa";	
+				liNodes[yy].className="bbb";
+				
+				console.log(xx)
+				
+			};	
+				//左边点击图片滚动
+				leftNode.onclick=function(){
+					var nowL=document.querySelector(".aaa");
+					var lastli;
+					for (var m=0;m<liNodes.length;m++) {	
+					liNodes[m].zzz=m;
+					}	
+					var xxx=nowL.zzz-1;
+					var yyy=nowL.zzz;
+					console.log(xxx)
+					if (xxx===-1) {
+						xxx=7;
+					} else{						
+					}
+					dotNode[xxx].className="now";
+					dotNode[yyy].className="";
+					liNodes[xxx].style.display="block";
+					liNodes[yyy].style.display="none";
+					liNodes[xxx].className="aaa";
+					liNodes[yyy].className="bbb";
+					console.log(xxx)
+				};
+				
+				
+				
+				dotNode[i].onclick=function(){										
+					if(this.className=="now"){
+						return;
+					}
+					var clickPos=this.wwww;
+					var lastChick;
+					for(var j=0;j<liNodes.length;j++){
+						if(dotNode[j].className=="now"){
+						lastChick=j;
+						break;
+						}
+					}					
+					this.className="now"
+					dotNode[lastChick].className="";
+					liNodes[clickPos].style.display="block";
+					liNodes[lastChick].style.display="none";
+					liNodes[clickPos].className="aaa";
+					liNodes[lastChick].className="";					
+
+				};
+				
+				
+				
+			
+			
+				
+				
+				
+				
+			
+			
+		};	
+			
+		</script>
+	</body>
+</html>
